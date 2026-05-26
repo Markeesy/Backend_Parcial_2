@@ -128,3 +128,37 @@ class EstacionamientoDisponibleResponse(BaseModel):
     NumeroCalle: int
 
     model_config = ConfigDict(from_attributes=True)
+
+
+# Clientes
+class ClienteBase(BaseModel):
+    nombreCliente: str
+
+class ClienteCreate(ClienteBase):
+    pass
+
+class ClienteUpdate(BaseModel):
+    nombreCliente: Optional[str] = None
+
+class ClienteResponse(ClienteBase):
+    idCliente: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+# Vinculación Vehiculo-Cliente
+class VehiculoClienteBase(BaseModel):
+    idVehiculo: int
+    idCliente: int
+
+class VehiculoClienteCreate(VehiculoClienteBase):
+    pass
+
+class VehiculoClienteUpdate(BaseModel):
+    idVehiculo: Optional[int] = None
+    idCliente: Optional[int] = None
+
+class VehiculoClienteResponse(VehiculoClienteBase):
+    idVehiculoCliente: int
+
+    model_config = ConfigDict(from_attributes=True)

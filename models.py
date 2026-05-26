@@ -26,3 +26,14 @@ class Registro(Base):
     fechaHoraSalida = Column(DateTime, nullable=True)
     duracionHs = Column(Integer, nullable=True)
     anulado = Column(Boolean, default=False)
+
+class Cliente(Base):
+    __tablename__ = "clientes"
+    idCliente = Column(Integer, primary_key=True, index=True)
+    nombreCliente = Column(String, nullable=True)
+
+class VehiculoCliente(Base):
+    __tablename__ = "vehiculos_clientes"
+    idVehiculoCliente = Column(Integer, primary_key=True, index=True)
+    idVehiculo = Column(Integer, nullable=True)
+    idCliente = Column(Integer, nullable=True)
